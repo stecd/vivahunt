@@ -3,28 +3,29 @@ $( document ).ready(function() {
   var vivaAPI = "http://www.vivahunt.com/";
 
   function fetch () {
-  $.ajax({
-     type : "GET",
-     dataType : "json",
-     url : vivaAPI + "posts/today",
-     success: function(data){
-      console.log(data);
-      var sortedData = data.posts.sort(compareNumbers);
-      $.each( sortedData, function( i, item ) {
-        $( "#postslinks ul").append('<li style="clear:both"><div class="col-xs-2 upvote"><button>' + item.score + '</button></div>' + '<div class="col-xs-7 desc"><h2><a href="'+ item.url+ '" target="_blank">' + item.name + '</a></h2><p>' + item.tagline + '</p></div>' + '<div class="col-xs-3 user"><img src="http://avatars.io/twitter/'+ item.twitter_name + '" ></div></li>');
-    });
-  }
-});
-};
-fetch();
+      $.ajax({
+       type : "GET",
+       dataType : "json",
+       url : vivaAPI + "posts/today",
+       success: function(data){
+          console.log(data);
+          var sortedData = data.posts.sort(compareNumbers);
+          $.each( sortedData, function( i, item ) {
+            $( "#postslinks ul").append('<li style="clear:both"><div class="col-xs-2 upvote" ><button data-id="'+item.id+'">' + item.score + '</button></div>' + '<div class="col-xs-7 desc"><h2><a href="'+ item.url+ '" target="_blank">' + item.name + '</a></h2><p>' + item.tagline + '</p></div>' + '<div class="col-xs-3 user"><img src="http://avatars.io/twitter/'+ item.twitter_name + '" ></div></li>');
+        });
+        attachUpvotes();
+      }
+  });
+  };
+  fetch();
 
 
   console.log(vivaAPI);
   $.ajax({
-     type : "GET",
-     dataType : "json",
-     url : vivaAPI + "categories",
-     success: function(data){
+   type : "GET",
+   dataType : "json",
+   url : vivaAPI + "categories",
+   success: function(data){
       console.log(data);
       $.each( data.categories, function( i, item ) {
         $( "ul.topics").append('<li>' + item.category + '</li>');
@@ -33,18 +34,18 @@ fetch();
 });
 
   $.ajax({
-     type : "GET",
-     dataType : "json",
-     url : vivaAPI + "me",
-     success: function(data){
-        console.log(data.success);
-        if(data.success === "true"){
-          $("#nologged").hide();
-          console.log("WOOHO, you are logged in.");
-          $("#login").hide();
-          $("#logged").show();
-      }
+   type : "GET",
+   dataType : "json",
+   url : vivaAPI + "me",
+   success: function(data){
+    console.log(data.success);
+    if(data.success === "true"){
+      $("#nologged").hide();
+      console.log("WOOHO, you are logged in.");
+      $("#login").hide();
+      $("#logged").show();
   }
+}
 });
   
 $(".add_moderator_form").on('submit', function(event) {
@@ -77,40 +78,41 @@ $('.cd-panel').on('click', function(event){
 function compareNumbers(a, b) {
   return b.score - a.score;
 }
-
-$(".upvote").on('click', 'button', function(event) {
+function attachUpvotes () {
+    $(".upvote").on('click', 'button', function(event) {
       event.preventDefault();
       var button = this;
       var post_id = $(button).data("id");
-      console.log("post_id "+post_id)
+      console.log("post_id "+post_id);
 
       $.ajax({
-       type : "GET",
-       dataType : "json",
-       url : vivaAPI + "posts/"+ post_id +"/vote",
-       success: function(data){
-        if(data.success){
-          var previous_score = $(button).text();
-          $(button).text(parseInt(previous_score) + 1);
-        } else {
+         type : "GET",
+         dataType : "json",
+         url : vivaAPI + "posts/"+ post_id +"/vote",
+         success: function(data){
+            if(data.success){
+              var previous_score = $(button).text();
+              $(button).text(parseInt(previous_score) + 1);
+          } else {
           // check if logged. if so, you already voted, else redirect
           $.ajax({
-           type : "GET",
-           dataType : "json",
-           url : vivaAPI + "me",
-           success: function(data){
-            if(data.success){
-              alert('You have already voted.');
-            } else {
-              alert("You have to log in first. You will now be redirected...");
+             type : "GET",
+             dataType : "json",
+             url : vivaAPI + "me",
+             success: function(data){
+                if(data.success){
+                  alert('Você já votou / Ya votaste');
+              } else {
+                  alert("You have to log in first. You will now be redirected...");
               // location.href="http://www.vivahunt.com/login";
-            }
-           }
-          });
-        }
-       }
-      });
-    });
+          }
+      }
+  });
+      }
+  }
+});
+  });
+}
 
 $( "#login").click(function() {
     location.href="http://www.vivahunt.com/login";
@@ -136,15 +138,16 @@ function postiar () {
     data.tagline = $('#description').val();
     data.url = $('#url').val();
     data.category = $('#category').val();
+    data.tags = "";
     $.post(vivaAPI + 'posts', data, function (data) {
         console.log(data);
         if(data.success){
             fetch();
             $('#name').val('');
-             $('#description').val('');
-             $('#url').val('');
-             $('#category').val('');
-             $('.cd-panel').removeClass('is-visible');
+            $('#description').val('');
+            $('#url').val('');
+            $('#category').val('');
+            $('.cd-panel').removeClass('is-visible');
         }
 
     });
