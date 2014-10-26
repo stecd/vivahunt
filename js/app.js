@@ -123,7 +123,15 @@ function postiar () {
     data.category = $('#category').val();
     $.post(vivaAPI + 'posts', data, function (data) {
         console.log(data);
-        fetch();
+        if(data.success){
+            fetch();
+            $('#name').val('');
+             $('#description').val('');
+             $('#url').val('');
+             $('#category').val('');
+             $('.cd-panel').removeClass('is-visible');
+        }
+
     });
 }
 
