@@ -42,5 +42,9 @@ $( "#login").click(function() {
     location.href="http://www.vivahunt.com/login";
 });
 
+$( "#logout").click(function() {
+    location.href="http://www.vivahunt.com/logout";
+});
+
 });
     
