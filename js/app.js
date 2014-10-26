@@ -123,6 +123,7 @@ function postiar () {
     data.tagline = $('#description').val();
     data.url = $('#url').val();
     data.category = $('#category').val();
+    data.tags = "";
     $.post(vivaAPI + 'posts', data, function (data) {
         console.log(data);
         if(data.success){
