@@ -173,12 +173,28 @@
   font-weight: 900;
   font-size: 15px;
   text-align: center;
-  width: 100%;
+  width: 80%;
   padding: 21px 0 19px;
-  margin: 100px auto 48px auto;
+  margin: 100px auto 48px 0;
   border-bottom: 3px solid #ac3225;
   border-radius: 13px;
-  
+  text-decoration: none;
+}
+
+.moderator_action a{
+  text-decoration: none;
+  color: white;
+}
+
+.moderator_submission:focus {
+  outline: 0;
+}
+
+.modal-sm{
+ width: 400px; 
+}
+.modal-content{
+ padding: 30px 30px; 
 }
 
 /*********************************************

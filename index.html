@@ -16,6 +16,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+     
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -109,8 +110,24 @@
       <ul class="topics" id="topics">
       </ul>
       <section class="moderator_action">
-        <a class="moderator_submission">Moderate</a>
+        <a href="#" tabindex="0" class="moderator_submission" data-toggle="modal" data-target=".bs-example-modal-sm">Become a Moderator</a>
+        <div id="moderator-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <h3>Em Breve!</h3>
+              <p>Crie sua própria comunidade e seja o moderador. Aplique abaixo e a comunidade irá votar no maior influenciador. </p>
+              <form class="form-horizontal add_moderator_form" role="form">
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control add_moderator_form" placeholder="New category..." id="new_category">
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
       </section>
+
     </div>
     <div class="col-sm-9 content">
       <header>

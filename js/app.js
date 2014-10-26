@@ -46,6 +46,21 @@ fetch();
       }
   }
 });
+  
+$(".add_moderator_form").on('submit', function(event) {
+  var value_cat = $('#new_category').val()
+//  $.ajax({
+//     type : "POST",
+//     dataType : "json",
+//     url : vivaAPI + "apply/" +value_cat,
+//     success: function(data){
+//        console.log(data.success);
+//        if(data.success === "true"){
+//          console.log("category added!");
+//      }
+     $('#moderator-modal').modal('hide');
+});
+
 
   $('.cd-btn').on('click', function(event){
     event.preventDefault();
