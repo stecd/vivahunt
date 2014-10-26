@@ -86,7 +86,7 @@ function attachUpvotes () {
              url : vivaAPI + "me",
              success: function(data){
                 if(data.success){
-                  alert('You have already voted.');
+                  alert('Você já votou / Ya votaste');
               } else {
                   alert("You have to log in first. You will now be redirected...");
               // location.href="http://www.vivahunt.com/login";
