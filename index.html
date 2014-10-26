@@ -5,8 +5,9 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
    <!--  <script src="/bower_components/angularjs/angular.min.js"></script> -->
+   <script src="/js/modernizr.js"></script>
     <script src="/js/jquery-2.1.1.js"></script>
-    <script src="/js/modernizr.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/js/app.js"></script>
   </head>
   <body>
@@ -47,7 +48,7 @@
     </div>
     </div><!-- /.container-fluid -->
 </nav>
-   
+
     <div class="cd-panel from-right">
       <header class="cd-panel-header">
           <h1>Adicione um artigo</h1>
@@ -60,42 +61,42 @@
             <form class="form-horizontal" role="form">
               <div class="form-group">
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="Url">
+                  <input type="text" class="form-control" placeholder="Url" id="url">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="Nome">
+                  <input type="text" class="form-control" placeholder="Nome" id="name">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="Slogan">
+                  <input type="text" class="form-control" placeholder="Slogan" id="description">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-10">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      Action <span class="caret"></span>
+                    <select id="category" class='form-control'>
+                      <option value="">Category</option>
+                    </select>
+                    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      Categories <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
-                    </ul>
+                      <li><a href="#">Category</a></li>
+                    </ul> -->
+
                   </div>
                 </div>
-              </div>        
+              </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default">Sign in</button>
+                  <a id="postiar" class="btn btn-default">Post</a>
                 </div>
               </div>
             </form>
-            
+
           </div>
           </div>
       </div>
