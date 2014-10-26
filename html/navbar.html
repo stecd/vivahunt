@@ -1,0 +1,84 @@
+<nav class="navbar navbar-default header" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="#/">
+        <img src="/images/logo.png" alt="vivahunt">
+      </a>
+    </div>
+    <p class="navbar-text tagline">Descubra sua comunidade</p>
+    <div class="pull-right options">
+      <div class="add">
+       <a href="#/">
+          <img class="cd-btn" src="/images/plussign.png" alt="Add a link...">
+        </a>
+
+      </div>
+      <div class="profile">
+        <a href="#/">
+          <img ng-src="{{user.picture}}" class='pic' alt="Ste">
+        </a>
+        <a href="/#" class="arrow"></a>
+      </div>
+    </div>
+    </div><!-- /.container-fluid -->
+</nav>
+   
+    <div class="cd-panel from-right">
+      <header class="cd-panel-header">
+          <h1>Adicione um artigo</h1>
+          <a href="#0" class="cd-panel-close">cancel
+</a>
+      </header>
+
+      <div class="cd-panel-container">
+          <div class="cd-panel-content">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Url">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Nome">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Slogan">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>        
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+          </div>
+      </div>
+    </div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VivaHunt</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/bower_components/angularjs/angular.min.js"></script>
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/app.js"></script>
+  </head>
+  <body data-ng-app="vivahunt" data-ng-controller="mainController">
+<!--  <main class="cd-main-content">-->
+    <div data-ng-include="'/html/navbar.html'" ng-controller="mainController" onload="animateButton()"></div>
+    <div data-ng-include="'/html/feed.html'" ></div>
+<!--  </main>-->
+
+  </body>
+</html>
