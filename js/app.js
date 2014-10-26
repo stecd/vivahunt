@@ -1,6 +1,8 @@
 $( document ).ready(function() {
 
   var vivaAPI = "http://www.vivahunt.com/";
+
+  function fetch () {
   $.ajax({
      type : "GET",
      dataType : "json",
@@ -13,6 +15,10 @@ $( document ).ready(function() {
     });
   }
 });
+};
+fetch();
+
+
   console.log(vivaAPI);
   $.ajax({
      type : "GET",
@@ -33,12 +39,9 @@ $( document ).ready(function() {
      success: function(data){
         console.log(data.success);
         if(data.success === "true"){
-<<<<<<< HEAD
           $("#nologged").hide();
-=======
           console.log("WOOHO, you are logged in.");
           $("#login").hide();
->>>>>>> 14c844b7cee62f7cb1d4b95e8010b907388f755c
           $("#logged").show();
       }
   }
@@ -120,6 +123,7 @@ function postiar () {
     data.category = $('#category').val();
     $.post(vivaAPI + 'posts', data, function (data) {
         console.log(data);
+        fetch();
     });
 }
 
