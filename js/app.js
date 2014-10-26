@@ -56,6 +56,40 @@ function compareNumbers(a, b) {
   return b.score - a.score;
 }
 
+$(".upvote").on('click', 'button', function(event) {
+      event.preventDefault();
+      var button = this;
+      var post_id = $(button).data("id");
+      console.log("post_id "+post_id)
+
+      $.ajax({
+       type : "GET",
+       dataType : "json",
+       url : vivaAPI + "posts/"+ post_id +"/vote",
+       success: function(data){
+        if(data.success){
+          var previous_score = $(button).text();
+          $(button).text(parseInt(previous_score) + 1);
+        } else {
+          // check if logged. if so, you already voted, else redirect
+          $.ajax({
+           type : "GET",
+           dataType : "json",
+           url : vivaAPI + "me",
+           success: function(data){
+            if(data.success){
+              alert('You have already voted.');
+            } else {
+              alert("You have to log in first. You will now be redirected...");
+              // location.href="http://www.vivahunt.com/login";
+            }
+           }
+          });
+        }
+       }
+      });
+    });
+
 $( "#login").click(function() {
     location.href="http://www.vivahunt.com/login";
 });
