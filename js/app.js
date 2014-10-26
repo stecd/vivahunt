@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  var vivaAPI = "http://vivahunt.com/";
+  var vivaAPI = "http://www.vivahunt.com/";
   $.ajax({
      type : "GET",
      dataType : "json",
@@ -33,6 +33,7 @@ $( document ).ready(function() {
      success: function(data){
         console.log(data.success);
         if(data.success === "true"){
+          console.log("WOOHO, you are logged in.");
           $("#login").hide();
           $("#logged").show();
         }
