@@ -165,6 +165,22 @@
   max-width: 60px;
 }
 
+.moderator_submission{
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  background-color: #ef4939;
+  font-weight: 900;
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+  padding: 21px 0 19px;
+  margin: 100px auto 48px auto;
+  border-bottom: 3px solid #ac3225;
+  border-radius: 13px;
+  
+}
+
 /*********************************************
 *************************** ADD CONTENT BUTTON
 *********************************************/
