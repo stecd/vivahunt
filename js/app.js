@@ -11,7 +11,7 @@ $( document ).ready(function() {
           console.log(data);
           var sortedData = data.posts.sort(compareNumbers);
           $.each( sortedData, function( i, item ) {
-            $( "#postslinks ul").append('<li style="clear:both"><div class="col-xs-2 upvote"><button>' + item.score + '</button></div>' + '<div class="col-xs-7 desc"><h2><a href="'+ item.url+ '" target="_blank">' + item.name + '</a></h2><p>' + item.tagline + '</p></div>' + '<div class="col-xs-3 user"><img src="http://avatars.io/twitter/'+ item.twitter_name + '" ></div></li>');
+            $( "#postslinks ul").append('<li style="clear:both"><div class="col-xs-2 upvote" ><button data-id="'+item.id+'">' + item.score + '</button></div>' + '<div class="col-xs-7 desc"><h2><a href="'+ item.url+ '" target="_blank">' + item.name + '</a></h2><p>' + item.tagline + '</p></div>' + '<div class="col-xs-3 user"><img src="http://avatars.io/twitter/'+ item.twitter_name + '" ></div></li>');
         });
         attachUpvotes();
       }
