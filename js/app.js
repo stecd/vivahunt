@@ -7,7 +7,8 @@ $( document ).ready(function() {
      url : vivaAPI + "posts/today",
      success: function(data){
           console.log(data);
-        $.each( data.posts, function( i, item ) {
+        var sortedData = data.posts.sort(compareNumbers);
+        $.each( sortedData, function( i, item ) {
         $( "#postslinks ul").append('<li style="clear:both"><div class="col-xs-2 upvote"><button>' + item.score + '</button></div>' + '<div class="col-xs-7 desc"><h2><a href="'+ item.url+ '" target="_blank">' + item.name + '</a></h2><p>' + item.tagline + '</p></div>' + '<div class="col-xs-3 user"><img src="http://avatars.io/twitter/'+ item.twitter_name + '" ></div></li>');
       });
      }
@@ -37,6 +38,10 @@ $( document ).ready(function() {
         }
      }
     });
+  
+function compareNumbers(a, b) {
+  return b.score - a.score;
+}
 
 $( "#login").click(function() {
     location.href="http://www.vivahunt.com/login";
